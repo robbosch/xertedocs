@@ -1,7 +1,7 @@
-$project
+Xerte online Toolkits
 ========
 
-$project will solve your problem of where to start with documentation,
+Xerte online Toolkits will solve your problem of where to start with documentation,
 by providing a basic explanation of how to do it easily.
 
 Look how easy it is to use:
@@ -19,23 +19,23 @@ Features
 Installation
 ------------
 
-Install $project by running:
+Install Xerte online Toolkits by running:
 
     install project
 
 Contribute
 ----------
 
-- Issue Tracker: github.com/$project/$project/issues
-- Source Code: github.com/$project/$project
+- Issue Tracker: github.com/Xerte online Toolkits/Xerte online Toolkits/issues
+- Source Code: github.com/Xerte online Toolkits/Xerte online Toolkits
 
 Support
 -------
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@google-groups.com
+We have a mailing list located at: Xerte@xerte.org.uk
 
 License
 -------
 
-The project is licensed under the BSD license.
+The project is licensed under the Apache 2 license
