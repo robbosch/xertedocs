@@ -1,4 +1,4 @@
-.. Xerte documentation master file
+.. xertedocs master file
 
 Xerte online Toolkits documentation
 ===================================
