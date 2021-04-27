@@ -46,3 +46,10 @@ Developer
 .. toctree::
    :maxdepth: 2
    developer
+   
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
