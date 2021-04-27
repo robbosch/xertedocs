@@ -31,6 +31,7 @@ Teacher
    teacher_trainer
 
 System Administrator
+--------------------
 .. toctree::
    :maxdepth: 2
    system_administrator
