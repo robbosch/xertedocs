@@ -25,7 +25,7 @@ In this tutorial we will begin to create a simple learning object containing som
 In the process we will explore the basics of the Xerte Online Toolkits interface and the steps required to
 create and share your first learning object.
 
-`Download the assets for use with this guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/Xerte_FirstLOTutAssets.zip>`_
+`Assets for use with First Learning Object guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/Xerte_FirstLOTutAssets.zip>`_
 
 **Note**: The Jisc TechDis sandpit no longer exists - you will need to use your own installation or an installation elsewhere.
 
@@ -53,14 +53,14 @@ This tutorial covers the use of the Drag and Drop Labelling page type which allo
 interactions quickly and easily. The Drag and Drop interactions created are also fully accessible, enabling the
 drag and drop interaction to be navigated and completed by keyboard without the need for a mouse.
 
-`Download the assets for use with this guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_Asset_DD.zip>`_
+`Assets for using Drag & Drop guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_Asset_DD.zip>`_
 
 `Using the Image Hotspot Page <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_Hotspot.pdf>`_
 This tutorial covers the use of the Hotspot Image page type which allows you to add hotspots to images quickly
 and easily. The Hotspot Image pages created are also fully accessible, enabling the Hotspot interaction to be
 navigated and completed by keyboard without the need for a mouse.
 
-`Download the assets for use with this guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_asset_Hotspot.zip>`_
+`Assets for Image Hotspot guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_asset_Hotspot.zip>`_
 
 `Using the Multiple Choice Question Page <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_MultiChoice.pdf>`_
 This tutorial covers the use of the Multiple Choice Question template which enables you to add a multiple choice
@@ -74,7 +74,7 @@ information on the same page in smaller and/or separate chunks. This guide cover
 Tabbed Navigator however the other three navigators currently available are also created and used in a very similar
 way.
 
-`Download the assets for use with this guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_asset_Navigators.zip>`_
+`Assets for Navigator Pages guide <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_asset_Navigators.zip>`_
 
 `Using the Timeline / Matching Pairs Pages <http://training.mitchellmedia.co.uk/xot/USER-FILES/78-ronm-site//media/XerteTut_Timeline.pdf>`_
 This tutorial covers the use of the Timeline/Matching Pairs page type which allows you to add a ‘drag items to correct
