@@ -8,3 +8,5 @@ features may have changed but the general steps and guidance is still valid.
 
 We will update the guides linked from this project as we produce new documentation.
 How you start with Xerte depends on who you are - select the title most suited to your role to view relevant help.
+
+.. youtube:: 3zq8DM2SYto
