@@ -37,11 +37,11 @@ For .deb family of servers. If you do not already have a server in place, instal
     Note the ip address: `ip a`
 If you did not create a user, you need to allow SSH for root.
 edit sshd_config: ``nano /etc/ssh/sshd_config``
-    change the following line:
-    FROM:
-    #PermitRootLogin without-password
-    TO:
-    PermitRootLogin yes
+    |change the following line:
+    |FROM:
+    |#PermitRootLogin without-password
+    |TO:
+    |PermitRootLogin yes
 
 restart SSH: systemctl ssh restart
 
