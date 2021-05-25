@@ -62,9 +62,11 @@ You should see a default apache webpage.
 
 - **Install mariadb** database: ``apt install mariadb-server``
 Once MariaDB installed, it is recommended to run the following security script that will remove some insecure default settings and disable access to your database system: ``mysql_secure_installation``
+
 |   answer all questions with `y` You will need to create a mysql root password. Make sure to note it down. Be aware this is not the same account as the system root account. This is the mariadb root account. It is best practice to create separate mariadb accounts for each application you install. For the Xerte online Toolkits application we will create an account in mariadb. This way, mariadb accounts can only change the database of the application they are created for.
 
 Open de mysql console as root: ``mysql -u root -p``
+
 |   You will be prompted for the password. It is the password you previously created (and noted down)
 |   MariaDB [(none)]> CREATE DATABASE toolkits_data; 
 |   MariaDB [(none)]> GRANT ALL ON toolkits_data.* TO 'xertedbadmin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
