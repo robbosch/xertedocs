@@ -22,10 +22,10 @@ Optional additions
     Transcoding support for video files - see/read cron/transcoding.php - when run it will attempt to convert .flv files to .mp4 files to improve template viewing on Adobe-flash-free devices.
 
 Some assumptions:
-- The server used is an internet facing webserver. In order to be able to access the webserver from both the internet and the internal network, a reverse proxy will be set up.
-- A (sub) domain is set up in DNS where xerte will be accessible on.
-- Use a SSL certificate for https access. LetsEncrypt is probably the easiest to set up.
-- All prerequisites are installed and running.
+    - The server used is an internet facing webserver. In order to be able to access the webserver from both the internet and the internal network, a reverse proxy will be set up.
+    - A (sub) domain is set up in DNS where xerte will be accessible on.
+    - Use a SSL certificate for https access. LetsEncrypt is probably the easiest to set up.
+    - All prerequisites are installed and running.
 
 Debian install
 ^^^^^^^^^^^^^^
