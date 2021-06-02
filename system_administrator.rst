@@ -87,19 +87,23 @@ restart apache webserver: ``systemctl reload apache2``
 Create Vhost for xerte
 ~~~~~~~~~~~~~~~~~~~~~~
 |   create a directory xerte under /var/www/: ``mkdir -p /var/www/xerte``
+|   Make sure the directory is owned and writeble by apache: `` 
 |   create a configfile for the vhost: ``nano /etc/apache2/sites-available/toolkits.conf``
-
-      <VirtualHost *:80>
-        ServerName xerte.domain.tld
-        ServerAlias xerte.domain.tld
-        ServerAdmin adminuser@domain.tld
-        DocumentRoot /var/www/toolkits/
-        <Directory /var/www/toolkits/>
-          Options -Indexes +FollowSymLinks
-          AllowOverride All
-      </Directory>
-        ErrorLog ${APACHE_LOG_DIR}/example.com-error.log
-        CustomLog ${APACHE_LOG_DIR}/example.com-access.log combined
-      </VirtualHost>
-
+|   add the following lines to the file:
+|
+|      <VirtualHost *:80>
+|        ServerName xerte.domain.tld
+|        ServerAlias xerte.domain.tld
+|        ServerAdmin adminuser@domain.tld
+|        DocumentRoot /var/www/toolkits/
+|
+|        <Directory /var/www/toolkits/>
+|          Options -Indexes +FollowSymLinks
+|          AllowOverride All
+|      </Directory>
+|
+|        ErrorLog ${APACHE_LOG_DIR}/example.com-error.log
+|        CustomLog ${APACHE_LOG_DIR}/example.com-access.log combined
+|      </VirtualHost>
+|
 |   Create a simlink of the configuration file in sites-enebled directory: ``ln -s /etc/apache2/sites-available/toolkits.conf /etc/apache2/sites-enabled/``
