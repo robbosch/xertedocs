@@ -6,11 +6,11 @@ Installation guide
 
 Requires :
 
-    PHP v5.1.2 or later. v7.3x works fine.*
-    PHP v8 is not yet supported.
-    Apache, nginx or some other web server that is setup to execute PHP.
-    Write permission to USER-FILES.
-    MySQL/MariaDB. MySQL 5x and/or MariaDB 10x or MySQL 8.0 in combination with apache 2.4 work fine.
+| PHP v5.1.2 or later. v7.3x works fine.*
+| PHP v8 is not yet supported.
+| Apache, nginx or some other web server that is setup to execute PHP.
+| Write permission to USER-FILES.
+| MySQL/MariaDB. MySQL 5x and/or MariaDB 10x or MySQL 8.0 in combination with apache 2.4 work fine.
 
 Optional additions
 
@@ -23,7 +23,7 @@ Optional additions
 
 Some assumptions:
     - The server used is an internet facing webserver. In order to be able to access the webserver from both the internet and the internal network, a reverse proxy will be set up.
-    - A (sub) domain is set up in DNS where xerte will be accessible on.
+    - A (sub) domain is set up in DNS where xerte will be accessible on. We will assume to use http(s)://xerte.domain.tld
     - Use a SSL certificate for https access. LetsEncrypt is probably the easiest to set up.
     - All prerequisites are installed and running.
 
@@ -68,10 +68,10 @@ Once MariaDB installed, it is recommended to run the following security script t
 Open de mysql console as root: ``mysql -u root -p``
 
 |   You will be prompted for the password. It is the password you previously created (and noted down)
-|   MariaDB [(none)]> CREATE DATABASE toolkits_data; 
-|   MariaDB [(none)]> GRANT ALL ON toolkits_data.* TO 'xertedbadmin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
-|   MariaDB [(none)]> FLUSH PRIVILEGES;
-|   MariaDB [(none)]> exit;
+|   MariaDB [(none)]> ``CREATE DATABASE toolkits_data;``
+|   MariaDB [(none)]> ``GRANT ALL ON toolkits_data.* TO 'xertedbadmin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;``
+|   MariaDB [(none)]> ``FLUSH PRIVILEGES;``
+|   MariaDB [(none)]> ``exit;``
 
 In this example the database name will be toolkits_data. After that the xerte database user is created and given permission on the xerte database. In this example the user **xertedbadmin** is created with password **password** (CHANGE THIS TO A SECURE PASSWORD). The GRANT option makes the account able to grant other mysql accounts permissions on the xerte database.
 
@@ -86,4 +86,20 @@ restart apache webserver: ``systemctl reload apache2``
 
 Create Vhost for xerte
 ~~~~~~~~~~~~~~~~~~~~~~
+|   create a directory xerte under /var/www/: ``mkdir -p /var/www/xerte``
+|   create a configfile for the vhost: ``nano /etc/apache2/sites-available/toolkits.conf``
 
+      <VirtualHost *:80>
+        ServerName xerte.domain.tld
+        ServerAlias xerte.domain.tld
+        ServerAdmin adminuser@domain.tld
+        DocumentRoot /var/www/toolkits/
+        <Directory /var/www/toolkits/>
+          Options -Indexes +FollowSymLinks
+          AllowOverride All
+      </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/example.com-error.log
+        CustomLog ${APACHE_LOG_DIR}/example.com-access.log combined
+      </VirtualHost>
+
+|   Create a simlink of the configuration file in sites-enebled directory: ``ln -s /etc/apache2/sites-available/toolkits.conf /etc/apache2/sites-enabled/``
