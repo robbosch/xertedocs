@@ -80,14 +80,15 @@ In this example the database name will be toolkits_data. After that the xerte da
 |   look for available databases: ``show databases;``
 |   log out mysql: ``exit;``
 
-- **Install php**: ``apt install php libapache2-mod-php php-mysql``
+- **Install php**: ``apt install php libapache2-mod-php php-mysql php-xml php-fpm php-gd php-ldap``
 
 restart apache webserver: ``systemctl reload apache2``
 
+- **install unzip**: ``apt install unzip``
+
 Create Vhost for xerte
 ~~~~~~~~~~~~~~~~~~~~~~
-|   create a directory xerte under /var/www/: ``mkdir -p /var/www/xerte``
-|   Make sure the directory is owned and writeble by apache: `` 
+|   create a directory xerte under /var/www/: ``mkdir -p /var/www/toolkits``
 |   create a configfile for the vhost: ``nano /etc/apache2/sites-available/toolkits.conf``
 |   add the following lines to the file:
 |
@@ -100,10 +101,60 @@ Create Vhost for xerte
 |        <Directory /var/www/toolkits/>
 |          Options -Indexes +FollowSymLinks
 |          AllowOverride All
-|      </Directory>
+|        </Directory>
 |
-|        ErrorLog ${APACHE_LOG_DIR}/example.com-error.log
-|        CustomLog ${APACHE_LOG_DIR}/example.com-access.log combined
+|        ErrorLog ${APACHE_LOG_DIR}/xerte.domain.tld-error.log
+|        CustomLog ${APACHE_LOG_DIR}/xerte.domain.tld.log combined
 |      </VirtualHost>
 |
 |   Create a simlink of the configuration file in sites-enebled directory: ``ln -s /etc/apache2/sites-available/toolkits.conf /etc/apache2/sites-enabled/``
+|   Restart apache: ``systemctl restart apache2``
+
+- **Download Xerte installer**
+Since the Xerte installer is not directly available you have to create an account on the Xerte website: https://www.xerte.org.uk. After logging in you can download the zipfile to you desktop. Then copy the zipfile to the server.
+Example of using SCP to copy from a linux desktop to your Debian server: ``scp /path/to/xertetoolkits_xx.zip user@ip_server:/path/to/destination/directory``
+Where user is a user on the Debian server. You will be prompted for the password of the user. Make sure the user can use SSH and has sufficient permissions to the destination directory.
+If you did not copy directly to /var/www/toolkits then SSH into the server and copy the zipfile to that location.
+Unzip the zipfile
+Since Xerte uses the httpd user, change ownership to www-data *recursively* for the toolkits directory: ``chown -R www-data:www-data /var/www/toolkits/``
+
+- Open your browser for the final install.
+Enter the url you put in your vhost: ``xerte.domain.tld``
+You will be redirected to the xerte setup page and greeted with **Welcome to Xerte Online Toolkits Installer**
+The first page will state where xerte will be installed: ``/var/www/toolkits``
+And how you can access your install after installation: ``xerte.domain.tld``
+Click the ``Install`` button
+The second page will check if your server meets the requirements. If you see anything not meeting the requirements, fix that first before going further.
+Click ``Next``
+The third page checks your filesystem permissions. If there are any problems, make sure the httpd user has sufficient permissions on the directories checked.
+Click ``Next``
+The fourth page checks your php settings. If there are any problems found, then fix them first before going further.
+Click ``Next``
+The fifth page is for mysql database creation and population.
+Settings for a default Xerte install:
+Database Host: ``localhost`` # mariadb-server is installed on the same server
+Database username: ``xertedbadmin`` # mysql user you created previously
+Database name: ``toolkits_data`` # database you created previously
+Database password: ``password`` # password you created previously. Use a strong password
+Database prefix: leave empty unless you need it for housekeeping. 
+Click ``Next``
+The sixth page is the MySQL Database Account Set up page.
+Re-enter xerte DB account credentials:
+Database username: ``xertedbadmin`` # same user you enetered in page 5
+Database password: ``password`` # same password you entered in page 5
+Click ``Next``
+The seventh page will create the Xerte administrator account. This account can log in the management page for xerte. This account can NOT log in xerte as a normal user or content creator.
+Admin account name: ``xerteadmin``
+Admin account password: ``adminpassword`` # Make this a strong password and make sure to note it down.
+Click ``Next``
+The nineth page is an overtview of all your settings.
+
+The default setting for user authentication is 'Guest' - which allows **ANY visitor** to access Xerte's front end with privileges to create, **edit and delete ALL content**. So… using 'Guest' on a public web server (where anyone could access it) unless you have other security measures in place is **NOT recommended**. 
+Choose an authentication method: Change ``Guest`` to ``Db``
+Click ``Save``
+The final page is a confirmation that your Xerte install is complete. It also shows the URL where your Xerte is availabe: ``xerte.domain.tld``
+Since Xerte has been configured using a mysql database, you first need to create a user to be able to log in xerte.
+Go to xerte.domain.tld/management.php and log in with your xerteadmin account
+Click the users tab and add name and password for a new user.
+click ``save``
+Now go to your xerte login page: ``xerte.domain.tld`` and log in with your created user.
