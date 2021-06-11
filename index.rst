@@ -33,7 +33,9 @@ System Administrator
 .. toctree::
    :maxdepth: 2
    
-   system_administrator
+   installation
+   debian
+   centos
    
 Developer
 ---------
