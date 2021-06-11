@@ -138,7 +138,7 @@ Log out mysql: \``exit;`\`
 -  **Install php**: \``apt install php libapache2-mod-php php-mysql
    php-xml php-fpm php-gd php-ldap`\`
 
-Restart apache webserver: \``systemctl reload apache2`\`
+Restart apache webserver: \``systemctl restart apache2.service`\`
 
 -  **install unzip**: \``apt install unzip`\`
 
@@ -181,7 +181,7 @@ CustomLog ${APACHE_LOG_DIR}/xerte.domain.tld.log combined
    directory: \``ln -s /etc/apache2/sites-available/toolkits.conf
    /etc/apache2/sites-enabled/``
 
-   Restart apache: \``systemctl restart apache2`\`
+   Restart apache: \``systemctl restart apache2.service`\`
 
 -  **Download Xerte installer**
 
