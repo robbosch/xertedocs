@@ -14,13 +14,13 @@ How to contribute
 The easiest way to contribute is by forking and editing the repository directly on GitHub:
 
 * Create a GitHub account if you don't already have it
-* Go to https://github.com/thexerteproject/xerteonlinetoolkits/docs and fork the project
+* Go to https://github.com/thexerteproject/docs and fork the project
 * You can now edit any page using GitHub web interface and see a live preview of the output
 * When you're done, simply create a new pull request
 * A new automatic build is launched after the pull request is merged by a developer
 
 You can also use the traditional way by cloning the ``docs``
-repository (https://github.com/thexerteproject/xerteonlinetoolkits/docs) to your
+repository (https://github.com/thexerteproject/docs) to your
 machine and sending patches to the mailing list.
 
 While editing, please follow the guidelines below.
